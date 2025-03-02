@@ -1,16 +1,15 @@
-.video-js .vjs-control-bar {
+.video-js .ocx-control-bar {
   display: none;
   width: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 3.0em;
-
-  @include background-color-with-alpha($primary-background-color, $primary-background-transparency);
+  height: 3.5em;
+  padding: 0 5px;
 }
 
-.video-js.vjs-spatial-navigation-enabled .vjs-control-bar {
+.video-js.vjs-spatial-navigation-enabled .ocx-control-bar {
   gap: 1px;
 }
 
@@ -18,14 +17,14 @@
 //  - controls are not disabled
 //  - native controls are not used
 //  - there is no error
-.video-js:not(.vjs-controls-disabled, .vjs-using-native-controls, .vjs-error) .vjs-control-bar.vjs-lock-showing {
+.video-js:not(.vjs-controls-disabled, .vjs-using-native-controls, .vjs-error) .ocx-control-bar.vjs-lock-showing {
   display: flex !important;
 }
 
 // Video has started playing or we are in audioOnlyMode
-.vjs-has-started .vjs-control-bar,
-.vjs-audio-only-mode .vjs-control-bar {
-  @include display-flex;
+.vjs-has-started .ocx-control-bar,
+.vjs-audio-only-mode .ocx-control-bar {
+  @include display-flex(normal, space-between);
   visibility: visible;
   opacity: 1;
 
@@ -34,7 +33,7 @@
 }
 
 // Video has started playing AND user is inactive
-.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
+.vjs-has-started.vjs-user-inactive.vjs-playing .ocx-control-bar {
   // Remain visible for screen reader and keyboard users
   visibility: visible;
   opacity: 0;
@@ -47,17 +46,22 @@
 
 }
 
-.vjs-controls-disabled .vjs-control-bar,
-.vjs-using-native-controls .vjs-control-bar,
-.vjs-error .vjs-control-bar {
+.vjs-controls-disabled .ocx-control-bar,
+.vjs-using-native-controls .ocx-control-bar,
+.vjs-error .ocx-control-bar {
   // !important is ok in this context.
   display: none !important;
 }
 
 // Don't hide the control bar if it's audio or in audioOnlyMode
-.vjs-audio.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar,
-.vjs-audio-only-mode.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
+.vjs-audio.vjs-has-started.vjs-user-inactive.vjs-playing .ocx-control-bar,
+.vjs-audio-only-mode.vjs-has-started.vjs-user-inactive.vjs-playing .ocx-control-bar {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+
+.video-js .ocx-control-bar-left {
+  @include display-flex(center);
+
 }

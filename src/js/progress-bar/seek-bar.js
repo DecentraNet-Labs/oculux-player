@@ -1,13 +1,13 @@
 /**
  * @file seek-bar.js
  */
-import Slider from '../../slider/slider.js';
-import Component from '../../component.js';
-import {IS_IOS, IS_ANDROID} from '../../utils/browser.js';
-import * as Dom from '../../utils/dom.js';
-import * as Fn from '../../utils/fn.js';
-import {formatTime} from '../../utils/time.js';
-import {silencePromise} from '../../utils/promise';
+import Slider from '../slider/slider.js';
+import Component from '../component.js';
+import {IS_IOS, IS_ANDROID} from '../utils/browser.js';
+import * as Dom from '../utils/dom.js';
+import * as Fn from '../utils/fn.js';
+import {formatTime} from '../utils/time.js';
+import {silencePromise} from '../utils/promise';
 import keycode from 'keycode';
 import document from 'global/document';
 

@@ -27,6 +27,7 @@
     "changelog": "conventional-changelog -p videojs -i CHANGELOG.md -s",
     "build": "npm-run-all build-dev minify copy zip",
     "build-dev": "npm-run-all clean lint-errors build:js build:css build:lang build:test build:types",
+    "build-quick": "npm-run-all build:js build:css build:types",
     "build:test": "npm-run-all build:test:*",
     "build:test:a11y": "shx cp sandbox/descriptions.html.example sandbox/descriptions.test-a11y.html",
     "build:test:browserify": "browserify test/require/browserify.js -o test/dist/browserify.js",
@@ -86,6 +87,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
+    "@oculux/video-plugin": "file:oculux-video-plugin-0.1.4.tgz",
     "@videojs/http-streaming": "3.12.2",
     "@videojs/vhs-utils": "^4.0.0",
     "@videojs/xhr": "2.6.0",
@@ -123,7 +125,6 @@
     "filesize": "^4.1.2",
     "gh-release": "^6.0.4",
     "humanize-duration": "^3.26.0",
-    "husky": "^1.3.1",
     "is-ci": "^3.0.0",
     "jsdoc": "^3.6.11",
     "jsdoc-tsimport-plugin": "^1.0.5",

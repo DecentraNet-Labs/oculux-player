@@ -20,6 +20,8 @@ sandbox/*
 *.swp
 *.swo
 
+*.tgz
+
 *.orig
 
 *results.xml

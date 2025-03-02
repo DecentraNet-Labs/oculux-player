@@ -43,7 +43,7 @@
   & .vjs-volume-control.vjs-slider-active {
     &.vjs-volume-horizontal {
       width: 5em;
-      height: 3em;
+      height: 3.5em;
       margin-right: 0;
     }
     visibility: visible;
@@ -93,7 +93,7 @@
 }
 
 .video-js .vjs-volume-bar {
-  margin: 1.35em 0.45em;
+  margin: auto;
 }
 
 .vjs-volume-bar.vjs-slider-horizontal {

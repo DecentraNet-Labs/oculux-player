@@ -1,10 +1,10 @@
 /**
  * @file time-tooltip.js
  */
-import Component from '../../component';
-import * as Dom from '../../utils/dom.js';
-import {formatTime} from '../../utils/time.js';
-import * as Fn from '../../utils/fn.js';
+import Component from '../component.js';
+import * as Dom from '../utils/dom.js';
+import {formatTime} from '../utils/time.js';
+import * as Fn from '../utils/fn.js';
 
 /**
  * Time tooltips display a time above the progress bar.

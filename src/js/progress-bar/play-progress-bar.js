@@ -1,11 +1,11 @@
 /**
  * @file play-progress-bar.js
  */
-import Component from '../../component.js';
-import {IS_IOS, IS_ANDROID} from '../../utils/browser.js';
-import * as Fn from '../../utils/fn.js';
+import Component from '../component.js';
+import {IS_IOS, IS_ANDROID} from '../utils/browser.js';
+import * as Fn from '../utils/fn.js';
 
-import './time-tooltip';
+import './time-tooltip.js';
 
 /**
  * Used by {@link SeekBar} to display media playback progress as part of the

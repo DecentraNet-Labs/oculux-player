@@ -1,10 +1,10 @@
 /**
  * @file mouse-time-display.js
  */
-import Component from '../../component.js';
-import * as Fn from '../../utils/fn.js';
+import Component from '../component.js';
+import * as Fn from '../utils/fn.js';
 
-import './time-tooltip';
+import './time-tooltip.js';
 
 /**
  * The {@link MouseTimeDisplay} component tracks mouse movement over the

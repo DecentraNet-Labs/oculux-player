@@ -48,6 +48,7 @@ import './loading-spinner.js';
 import './big-play-button.js';
 import './close-button.js';
 import './control-bar/control-bar.js';
+import './progress-control.js';
 import './error-display.js';
 import './tracks/text-track-settings.js';
 import './resize-manager.js';
@@ -2007,7 +2008,7 @@ class Player extends Component {
     // we do not want to toggle fullscreen state
     // when double-clicking inside a control bar or a modal
     const inAllowedEls = Array.prototype.some.call(
-      this.$$('.vjs-control-bar, .vjs-modal-dialog'),
+      this.$$('.ocx-control-bar, .vjs-modal-dialog'),
       el => el.contains(event.target)
     );
 
@@ -5429,6 +5430,7 @@ Player.prototype.options_ = {
     'loadingSpinner',
     'bigPlayButton',
     'liveTracker',
+    'progressControl',
     'controlBar',
     'errorDisplay',
     'textTrackSettings',

@@ -9,7 +9,7 @@ import Slider from '../../src/js/slider/slider.js';
 import PictureInPictureToggle from '../../src/js/control-bar/picture-in-picture-toggle.js';
 import FullscreenToggle from '../../src/js/control-bar/fullscreen-toggle.js';
 import ControlBar from '../../src/js/control-bar/control-bar.js';
-import SeekBar from '../../src/js/control-bar/progress-control/seek-bar.js';
+import SeekBar from '../../src/js/progress-bar/seek-bar.js';
 import RemainingTimeDisplay from '../../src/js/control-bar/time-controls/remaining-time-display.js';
 import TestHelpers from './test-helpers.js';
 import document from 'global/document';

@@ -1237,7 +1237,7 @@ Tech.withSourceHandlers = function(_Tech) {
    */
   _Tech.registerSourceHandler = function(handler, index) {
     let handlers = _Tech.sourceHandlers;
-
+    console.log("Handlers3:", handlers)
     if (!handlers) {
       handlers = _Tech.sourceHandlers = [];
     }
@@ -1263,7 +1263,7 @@ Tech.withSourceHandlers = function(_Tech) {
   _Tech.canPlayType = function(type) {
     const handlers = _Tech.sourceHandlers || [];
     let can;
-
+    console.log("Handlers:", handlers)
     for (let i = 0; i < handlers.length; i++) {
       can = handlers[i].canPlayType(type);
 
@@ -1318,8 +1318,8 @@ Tech.withSourceHandlers = function(_Tech) {
    *         'probably', 'maybe', or '' (empty string)
    */
   _Tech.canPlaySource = function(srcObj, options) {
+    console.log("Handlers2:", _Tech.sourceHandlers)
     const sh = _Tech.selectSourceHandler(srcObj, options);
-
     if (sh) {
       return sh.canHandleSource(srcObj, options);
     }
@@ -1375,6 +1375,7 @@ Tech.withSourceHandlers = function(_Tech) {
    *        A source object with src and type keys
    */
   _Tech.prototype.setSource = function(source) {
+    console.log("Handlers4:", _Tech.sourceHandlers)
     let sh = _Tech.selectSourceHandler(source, this.options_);
 
     if (!sh) {

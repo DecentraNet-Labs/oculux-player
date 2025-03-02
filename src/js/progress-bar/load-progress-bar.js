@@ -1,9 +1,9 @@
 /**
  * @file load-progress-bar.js
  */
-import Component from '../../component.js';
-import * as Dom from '../../utils/dom.js';
-import {clamp} from '../../utils/num';
+import Component from '../component.js';
+import * as Dom from '../utils/dom.js';
+import {clamp} from '../utils/num';
 import document from 'global/document';
 
 // get the percent width of a time compared to the total end
@@ -78,7 +78,7 @@ class LoadProgressBar extends Component {
       const duration = (liveTracker && liveTracker.isLive()) ? liveTracker.seekableEnd() : this.player_.duration();
       const bufferedEnd = this.player_.bufferedEnd();
       const children = this.partEls_;
-      const percent = percentify(bufferedEnd, duration);
+      const percent = percentify(bufferedEnd == duration ? bufferedEnd : bufferedEnd - 0.5, duration);
 
       if (this.percent_ !== percent) {
         // update the width of the progress bar
