@@ -4,6 +4,7 @@
 import Component from '../component.js';
 
 // Required children
+import './provider-select.js';
 import './picture-in-picture-toggle.js';
 import './fullscreen-toggle.js';
 import './text-track-controls/chapters-button.js';
@@ -43,6 +44,7 @@ class ControlBarRight extends Component {
  */
 ControlBarRight.prototype.options_ = {
   children: [
+    'providerSelect',
     'customControlSpacer',
     'playbackRateMenuButton',
     'chaptersButton',

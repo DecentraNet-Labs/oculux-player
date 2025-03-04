@@ -7,6 +7,8 @@
   right: 0;
   height: 3.5em;
   padding: 0 5px;
+
+  @include background-color-with-alpha($primary-background-color, $primary-background-transparency);
 }
 
 .video-js.vjs-spatial-navigation-enabled .ocx-control-bar {
@@ -61,7 +63,8 @@
   pointer-events: auto;
 }
 
-.video-js .ocx-control-bar-left {
+.video-js .ocx-control-bar-left,
+.video-js .ocx-control-bar-right {
   @include display-flex(center);
 
 }

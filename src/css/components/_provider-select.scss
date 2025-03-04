@@ -1,0 +1,73 @@
+.ocx-provider-select {
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 10em;
+
+  @include display-flex(center);
+}
+
+// Change cursor back to default if the menu button is disabled
+.ocx-provider-select.vjs-disabled {
+  cursor: default;
+}
+
+// prevent menus from opening while disabled
+.vjs-workinghover .ocx-provider-select.vjs-disabled:hover .vjs-menu {
+  display: none;
+}
+
+// prevent menus from opening while scrubbing
+.vjs-scrubbing .vjs-control.ocx-provider-select:hover .vjs-menu {
+  display: none;
+}
+
+.ocx-provider-select .vjs-menu li.vjs-menu-item {
+  justify-content: left;
+  text-align: left;
+  padding: 5px 10px;
+}
+
+.ocx-provider-select .vjs-menu-item-text {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vjs-menu li.vjs-menu-item:focus,
+.vjs-menu li.vjs-menu-item:hover,
+.js-focus-visible .vjs-menu li.vjs-menu-item:hover {
+  @include background-color-with-alpha($secondary-background-color, $secondary-background-transparency);
+}
+
+.vjs-menu li.vjs-selected,
+.vjs-menu li.vjs-selected:focus,
+.vjs-menu li.vjs-selected:hover,
+.js-focus-visible .vjs-menu li.vjs-selected:hover {
+  background-color: $primary-foreground-color;
+  color: $primary-background-color;
+
+  // Change the SVG color when an item is selected
+  .vjs-svg-icon {
+    fill: #000000;
+  }
+}
+
+.video-js .vjs-menu *:not(.vjs-selected):focus:not(:focus-visible),
+.js-focus-visible .vjs-menu *:not(.vjs-selected):focus:not(.focus-visible) {
+  background: none;
+}
+
+.vjs-menu li.vjs-menu-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1em;
+  line-height: 2em;
+  padding: 0;
+  margin: 0 0 0.3em 0;
+  font-weight: bold;
+  cursor: default;
+}

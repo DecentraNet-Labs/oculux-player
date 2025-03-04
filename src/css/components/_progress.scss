@@ -4,7 +4,7 @@
 .video-js .vjs-progress-control {
   cursor: pointer;
   @include flex(auto);
-  @include display-flex(flex-end);
+  display: none;
 
   width: 100%;
   position: absolute;
@@ -16,6 +16,8 @@
 
   min-width: 4em;
   touch-action: none;
+  
+  @include background-color-with-alpha($primary-background-color, $primary-background-transparency);
 }
 
 .video-js .vjs-progress-control.disabled {
@@ -28,6 +30,55 @@
 
 .vjs-liveui .vjs-progress-control {
   @include display-flex(center);
+}
+
+// Locks the display only if:
+//  - controls are not disabled
+//  - native controls are not used
+//  - there is no error
+.video-js:not(.vjs-controls-disabled, .vjs-using-native-controls, .vjs-error) .vjs-progress-control.vjs-lock-showing {
+  display: flex !important;
+}
+
+// Video has started playing or we are in audioOnlyMode
+.vjs-has-started .vjs-progress-control,
+.vjs-audio-only-mode .vjs-progress-control {
+  @include flex(auto);
+  @include display-flex(flex-end);
+  visibility: visible;
+  opacity: 1;
+
+  $trans: visibility 0.1s, opacity 0.1s; // Var needed because of comma
+  @include transition($trans);
+}
+
+// Video has started playing AND user is inactive
+.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-progress-control {
+  // Remain visible for screen reader and keyboard users
+  visibility: visible;
+  opacity: 0;
+  // prevent a click/tap from interacting with vjs-lock-showing menu's
+  // or other controls while we are inactive/hidden
+  pointer-events: none;
+
+  $trans: visibility 1.0s, opacity 1.0s;
+  @include transition($trans);
+
+}
+
+.vjs-controls-disabled .vjs-progress-control,
+.vjs-using-native-controls .vjs-progress-control,
+.vjs-error .vjs-progress-control {
+  // !important is ok in this context.
+  display: none !important;
+}
+
+// Don't hide the control bar if it's audio or in audioOnlyMode
+.vjs-audio.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-progress-control,
+.vjs-audio-only-mode.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-progress-control {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 // .vjs-progress-holder / SeekBar
